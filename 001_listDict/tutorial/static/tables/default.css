@@ -1,0 +1,28 @@
+table {
+    border-collapse: collapse;
+    width: 95%;
+    margin-left: 2.5%;
+}
+/* clase de table responsive original */
+table {
+    overflow-x: auto !important;
+    -webkit-overflow-scrolling: touch;
+}
+
+table thead th,table thead,table thead a{
+    color: #fff !important;
+    background-color: #343a40;
+    border-color: #454d55;
+    text-decoration: none;
+}
+
+table thead th{
+    padding: 5px;
+}
+table thead th a:hover,table thead th:hover{
+    text-decoration: none;
+}
+
+table tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+}
