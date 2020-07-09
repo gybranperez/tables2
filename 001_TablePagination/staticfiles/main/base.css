@@ -128,17 +128,34 @@ ul ul a {
 ----------------------------------------------------- */
 
 @media (max-width: 768px) {
+    .wrapper {
+        max-width: 100%;
+        position: relative !important;
+        overflow: hidden;
+    }
     #sidebar {
         margin-left: -250px;
+        position: absolute !important;
+        z-index: 3000;
+        min-height: 100vh;
     }
     #sidebar.active {
         margin-left: 0;
     }
     #content {
+        z-index: -1;
         width: 100%;
+        position: relative !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
     }
     #content.active {
-        width: calc(100% - 250px);
+        /*width: calc(100% - 250px);*/
+        overflow-x: hidden !important;
+        max-width: 100% !important;
+    }
+    body{
+        overflow-x: hidden !important;
     }
    
 }

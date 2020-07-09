@@ -1,0 +1,74 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>
+      {% block title %}
+      {% endblock %}
+    </title>
+    
+    {# Cargamos la librería #}
+    
+    {% load bootstrap4 %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
+    
+    {% block css %}
+    {# CSS Bootstrap #}
+    {% bootstrap_css %}
+    <link rel="stylesheet" href="{% static 'main/base.css'%}">
+    <link rel="stylesheet" href="{% static 'tables/default.css'%}">
+    <link rel="stylesheet" href="{% static 'fonts/iconic/font/css/open-iconic-foundation.css'%}">
+    {% endblock %}
+    <!-- Scrollbar Custom CSS -->
+</head>
+<body>
+  {% include "static_components/main_top_navbar.html" %}
+  <!--             CONTENIDO              -->
+
+  <div class="wrapper">
+    <!-- Sidebar  -->
+    <nav id="sidebar">
+        <div class="sidebar-header">
+            <!-- <img src="logo1.png" alt="logo"> -->
+        </div>
+
+        <ul class="list-unstyled components">
+          {% include "static_components/main_sidebar_menu.html" %}
+        </ul>
+    </nav>
+
+    <!-- Page Content  -->
+    <div id="content">
+      <nav aria-label="breadcrumb">
+        <ol class="breadcrumb">
+          {% block breadcrumb %}
+          {% endblock %}
+        </ol>
+      </nav>
+        {% block content %}
+        {% endblock %}
+    </div>
+</div>
+  
+  <!--          TERMINA CONTENIDO         -->
+  {# JS y jQuery Bootstrap #}
+  {% bootstrap_javascript jquery='full' %}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+
+  <script type="text/javascript">
+    $(document).ready(function () {
+        $("#sidebar").mCustomScrollbar({
+            theme: "minimal"
+        });
+        $('.sidebarCollapse').on('click', function () {
+            $('#sidebar, #content').toggleClass('active');
+            $('.collapse.in').toggleClass('in');
+            $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+        });
+    });
+</script>
+</body>
+</html>

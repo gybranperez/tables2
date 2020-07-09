@@ -144,6 +144,7 @@ ul ul a {
     }
     #content {
         z-index: -1;
+        padding-top: 0px !important;
         width: 100%;
         position: relative !important;
         max-width: 100% !important;

@@ -1,6 +1,6 @@
 table {
     border-collapse: collapse;
-    width: 95%;
+    width: 95% !important;
     margin-left: 2.5%;
 }
 /* clase de table responsive original */
