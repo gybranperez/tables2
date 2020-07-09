@@ -6,16 +6,16 @@ from .models import Person
 from django_tables2 import SingleTableView
 from .tables import PersonTable
 
-
+from django_tables2.config import RequestConfig
 # Create your views here.
 
 data = [
     {
-        "name": "lista personas",
-        "link": "/peopleList"
-    },{
-        "name": "tabla personas",
+        "name": "table people",
         "link": "/peopleTable"
+    },{
+        "name": "table people function",
+        "link": "/peopleTableFunction"
     },
 ]
 
@@ -35,3 +35,7 @@ class PersonTableView(SingleTableView):
     
     table = PersonTable
     template_name = 'peopleTable.html'
+def PersonTableFunction(request):
+    table = PersonTable(Person.objects.all())
+    RequestConfig(request, paginate={"per_page": 5}).configure(table)
+    return render(request, "peopleTableFunction.html", {"table": table})

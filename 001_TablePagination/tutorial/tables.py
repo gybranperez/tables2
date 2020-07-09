@@ -10,4 +10,4 @@ class PersonTable(tables.Table):
         """
         empty_text = "No hay datos que mostrar"
         template_name = "django_tables2/bootstrap4.html"
-        fields = ("name","lastname" )
+        #fields = ("id","name","lastname" )
