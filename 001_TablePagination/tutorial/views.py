@@ -22,7 +22,11 @@ data = [
     },{
         "name": "table people function",
         "link": "/peopleTableFunction"
+    },{
+        "name": "VMWare VCloud Organization list",
+        "link": "/vm_vc_org_list"
     },
+
 ]
 
 def index (request):
@@ -34,7 +38,7 @@ def index (request):
 class PersonListView(ListView):
     model = Person
     template_name = 'peopleList.html'
-    
+
 
 class PersonTableView(SingleTableMixin,FilterView):
     model = Person
@@ -44,8 +48,13 @@ class PersonTableView(SingleTableMixin,FilterView):
         'per_page': 3,
     }
     template_name = 'peopleTable.html'
-    
+
 def PersonTableFunction(request):
     table = PersonTable(Person.objects.all())
     RequestConfig(request, paginate={"per_page": 5}).configure(table)
     return render(request, "peopleTableFunction.html", {"table": table})
+
+def kio_vm_vc_org_table(request):
+    table = PersonTable(Person.objects.all())
+    RequestConfig(request, paginate={"per_page": 5}).configure(table)
+    return render(request, "kio_vm_vc_org_list.html", {"table": table})

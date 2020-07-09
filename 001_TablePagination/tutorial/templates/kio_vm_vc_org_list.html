@@ -1,0 +1,35 @@
+{% extends 'general_bases/main_base.html' %}
+{% load render_table from django_tables2 %}
+{% load bootstrap4 %}
+{% load static %}
+{% block css %}
+{{block.super}}
+<link rel="stylesheet" href="{% static 'tables/kio_vmware.css'%}">
+{% endblock %}
+{% block title %}
+  kio vm vc table
+{% endblock %}
+{% block breadcrumb %}
+<li class="breadcrumb-item"><a href="{% url 'tutorial:index'%}">Home</a></li>
+<li class="breadcrumb-item active" aria-current="page">kio vm vc table</li>
+{% endblock %}
+{% block content %}
+
+
+{% if filter %}
+<div class="container mb-3">
+<div class="row justify-content-md-center">
+  <form action="" method="get" class="col-xs-12 form form-inline">
+        {% bootstrap_form filter.form layout='inline' %}
+        {% bootstrap_button 'filter' %}
+    </form>
+  </div>
+</div>
+{% endif %}
+{% render_table table %}
+{% if not table %}
+<strong class="offset-md-3">No hay datos para mostrar</strong>
+{% endif %}
+
+
+{% endblock %}

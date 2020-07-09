@@ -16,12 +16,13 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from tutorial import views
-from tutorial.views import PersonListView,PersonTableView,PersonTableFunction
+from tutorial.views import PersonListView,PersonTableView,PersonTableFunction,kio_vm_vc_org_table
 from django_filters.views import FilterView
 urlpatterns = [
     path('', views.index, name='index'),  # Acá,
     #path('', IndexTable.as_view(), name='index'),  # Acá,
     path("peopleList/", PersonListView.as_view(), name='peoplelist'),
-    path("peopleTable/", PersonTableView.as_view(),name='peopletable'),
-    path('peopleTableFunction/', views.PersonTableFunction, name='peopletablefunction'), 
+    path("peopleTable/", PersonTableView.as_view(),name='peopletable'),#kio_vm_vc_org_table
+    path('peopleTableFunction/', views.PersonTableFunction, name='peopletablefunction'),
+    path('vm_vc_org_list/', views.kio_vm_vc_org_table, name='kio_vm_vc_org_table'), 
 ]
