@@ -6,7 +6,7 @@
 }
 .navbar{
     z-index: 5000;
-    
+
 }
 .wrapper {
     display: flex;
@@ -102,7 +102,12 @@ ul ul a {
     height:64px;
 }
 
-
+/*-------------------------------
+    Cursor
+-------------------------------*/
+.sidebarCollapse, #mainlogoutbtn{
+    cursor: pointer !important;
+}
 
 
 /* ---------------------------------------------------
@@ -158,5 +163,5 @@ ul ul a {
     body{
         overflow-x: hidden !important;
     }
-   
+
 }
